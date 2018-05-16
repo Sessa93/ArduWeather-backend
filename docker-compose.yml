@@ -1,0 +1,16 @@
+grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+        - "3000:3000"
+    volumes:
+        - "./confs/grafana.ini:/etc/grafana/grafana.ini"
+redis:
+    image: redis:latest
+    ports:
+        - "6379:6379"
+influxdb:
+    image: influxdb:latest
+    ports:
+        - "8086:8086"
+        - "8083:8083"
