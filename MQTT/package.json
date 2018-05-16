@@ -1,0 +1,14 @@
+{
+  "name": "ReWeather",
+  "version": "1.0.0",
+  "description": "Redis based MQTT broker",
+  "main": "src/server.js",
+  "repository": "https://github.com/Sessa93/ReWeather.git",
+  "author": "Andrea <andrea.sessa@mail.polimi.it>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "mosca": "latest",
+    "redis": "^2.8.0"
+  }
+}
