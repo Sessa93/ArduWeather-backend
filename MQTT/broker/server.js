@@ -7,7 +7,7 @@ var ascoltatore = {
   db: 12,
   port: 6379,
   return_buffers: false, // to handle binary payloads
-  host: "localhost"
+  host: "redis"
 };
 
 var moscaSettings = {
