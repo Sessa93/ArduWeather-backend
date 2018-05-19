@@ -21,3 +21,4 @@ mqtt:
     links:
         - "redis"
         - "influxdb"
+    network_mode: 'host'
