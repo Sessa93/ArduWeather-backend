@@ -1,5 +1,5 @@
 var mqtt = require('mqtt');
-var client  = mqtt.connect('mqtt://localhost');
+var client  = mqtt.connect('178.62.4.105:1883');
 
 client.on('connect', function () {
     setInterval(function() {

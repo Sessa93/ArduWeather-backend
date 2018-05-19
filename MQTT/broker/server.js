@@ -27,8 +27,7 @@ server.on('clientConnected', function(client) {
 
 // fired when a message is received
 server.on('published', function(packet, client) {
-  var msg = packet.payload.toString('utf8');
-  console.log('Published', packet.topic, msg);
+  var msg = packet.payload.toString('utf8'); 
   if (msg.includes('field1')) {
       influx.putMeasures(influx.parseMessage(msg));
   }
