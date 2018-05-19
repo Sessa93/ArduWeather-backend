@@ -7,8 +7,13 @@
   "author": "Andrea <andrea.sessa@mail.polimi.it>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "node src/server.js"
+  },
   "dependencies": {
+    "config": "^1.30.0",
+    "influx": "^5.0.7",
     "mosca": "latest",
-    "redis": "^2.8.0"
+    "redis": "latest"
   }
 }

@@ -14,3 +14,10 @@ influxdb:
     ports:
         - "8086:8086"
         - "8083:8083"
+mqtt:
+    image: mqtt:latest
+    ports:
+        - "1883:1883"
+    links:
+        - "redis"
+        - "influxdb"

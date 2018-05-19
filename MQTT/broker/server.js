@@ -1,11 +1,12 @@
 var mosca = require('mosca')
+var influx = require('./influx_client')
 
 var ascoltatore = {
   type: 'redis',
   redis: require('redis'),
   db: 12,
   port: 6379,
-  return_buffers: true, // to handle binary payloads
+  return_buffers: false, // to handle binary payloads
   host: "localhost"
 };
 
@@ -26,7 +27,11 @@ server.on('clientConnected', function(client) {
 
 // fired when a message is received
 server.on('published', function(packet, client) {
-  console.log('Published', packet.topic, packet.payload);
+  var msg = packet.payload.toString('utf8');
+  console.log('Published', packet.topic, msg);
+  if (msg.includes('field1')) {
+      influx.putMeasures(influx.parseMessage(msg));
+  }
 });
 
 // fired when the mqtt server is ready
