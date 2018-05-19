@@ -17,7 +17,8 @@ services:
             - "8083:8083"
     mqtt:
         image: mqtt:latest
+        ports:
+            - "1883:1883"
         links:
             - "redis"
             - "influxdb"
-        network_mode: 'host'
