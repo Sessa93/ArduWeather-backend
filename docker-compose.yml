@@ -2,7 +2,7 @@ grafana:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-        - "3000:3000"
+        - "3001:3000"
     volumes:
         - "./confs/grafana.ini:/etc/grafana/grafana.ini"
 redis:
