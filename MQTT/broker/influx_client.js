@@ -41,9 +41,11 @@ const parseMessage = function(message) {
     var j = '{';
     for(var i = 0; i < fields.length; i++) {
         var m = fields[i].split('=')
-        j += ('"'+mapping(m[0])+'": '+m[1]);
-        if (i < fields.length-1) {
-            j += ','
+        if (mapping(m[0]) != '') {
+            j += ('"'+mapping(m[0])+'": '+m[1]);
+            if (i < fields.length-1) {
+                j += ','
+            }
         }
     }
 
