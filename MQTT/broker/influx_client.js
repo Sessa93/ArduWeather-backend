@@ -12,7 +12,10 @@ const influx = new Influx.InfluxDB({
       fields: {
         temp: Influx.FieldType.FLOAT,
         hum: Influx.FieldType.FLOAT,
-        pres: Influx.FieldType.FLOAT
+        pres: Influx.FieldType.FLOAT,
+        wind_dir: Influx.FieldType.FLOAT,
+        wind_speed: Influx.FieldType.FLOAT,
+        rain_rate: Influx.FieldType.FLOAT
       }
     }
   ]
@@ -25,7 +28,10 @@ const putMeasures = function(measure) {
             fields: {
                 temp: measure.temp,
                 hum: measure.hum,
-                pres: measure.pres
+                pres: measure.pres,
+                wind_dir: measure.wind_dir,
+                wind_speed: measure.wind_speed,
+                rain_rate: measure.rain_rate
             }
         }
     ];
@@ -61,6 +67,12 @@ const mapping = function(field) {
             return 'hum';
         case 'field3':
             return 'pres';
+        case 'field4':
+            return 'wind_speed';
+        case 'field5':
+            return 'wind_dir';
+        case 'field6':
+            return 'rain_rate';
     }
     return '';
 };
