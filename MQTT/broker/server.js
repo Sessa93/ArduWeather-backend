@@ -7,10 +7,11 @@ var ascoltatore = {
   db: 12,
   port: 6379,
   return_buffers: false, // to handle binary payloads
-  host: "redis"
+  host: "localhost"
 };
 
 var moscaSettings = {
+  host: '0.0.0.0',
   port: 1883,
   backend: ascoltatore,
   persistence: {
@@ -27,7 +28,8 @@ server.on('clientConnected', function(client) {
 
 // fired when a message is received
 server.on('published', function(packet, client) {
-  var msg = packet.payload.toString('utf8'); 
+  var msg = packet.payload.toString('utf8');
+  console.log('NEW MESSAGE: '+msg);
   if (msg.includes('field1')) {
       influx.putMeasures(influx.parseMessage(msg));
   }

@@ -31,7 +31,7 @@ const putMeasures = function(measure) {
                 pres: measure.pres,
                 wind_dir: measure.wind_dir,
                 wind_speed: measure.wind_speed,
-                rain_rate: measure.rain_rate
+                rain_rate: Math.abs(measure.rain_rate)
             }
         }
     ];

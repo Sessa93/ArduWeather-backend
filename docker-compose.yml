@@ -1,11 +1,15 @@
-services:
+version: '3'
+services:        
     grafana:
         image: grafana/grafana:latest
         container_name: grafana
         ports:
             - "3001:3000"
         volumes:
-            - "./confs/grafana.ini:/etc/grafana/grafana.ini"
+            - ./confs/grafana.ini:/etc/grafana/grafana.ini
+            - ./grafana/data:/var/lib/grafana #chown 472:472 grafana/data
+        links:
+            - "influxdb"
     redis:
         image: redis:latest
         ports:
@@ -15,10 +19,5 @@ services:
         ports:
             - "8086:8086"
             - "8083:8083"
-    mqtt:
-        image: mqtt:latest
-        ports:
-            - "1883:1883"
-        links:
-            - "redis"
-            - "influxdb"
+        volumes:
+            - ./influxdb/data:/var/lib/influxdb

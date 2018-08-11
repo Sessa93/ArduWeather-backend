@@ -1,6 +1,6 @@
 {
     "influxdb": {
-        "host": "influxdb",
+        "host": "localhost",
         "database": "weather_db",
         "username": "",
         "password": ""

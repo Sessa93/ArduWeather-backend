@@ -1,0 +1,14 @@
+[Unit]
+Description=MQTT broker
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/npm run start
+WorkingDirectory=/home/andrea/weather/ReWeather/MQTT
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=andrea
+
+[Install]
+WantedBy=multi-user.target
