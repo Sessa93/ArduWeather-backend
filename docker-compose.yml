@@ -21,3 +21,8 @@ services:
             - "8083:8083"
         volumes:
             - ./influxdb/data:/var/lib/influxdb
+    mqtt:
+        build: ./MQTT
+        image: mqtt
+        ports:
+            - "1883:3030"
