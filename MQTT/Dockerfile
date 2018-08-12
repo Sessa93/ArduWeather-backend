@@ -11,6 +11,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
 
 WORKDIR /usr/share/mqtt
 COPY package*.json ./
+COPY start.sh ./
 
 RUN npm install
 COPY . .
@@ -19,4 +20,4 @@ RUN rm -f /etc/nginx/nginx.conf
 ADD nginx.conf /etc/nginx/
 
 EXPOSE 1883
-CMD ["./start.sh"]
+CMD ["start.sh"]
