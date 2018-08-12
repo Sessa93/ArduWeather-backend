@@ -25,4 +25,4 @@ services:
         build: ./MQTT
         image: mqtt
         ports:
-            - "1883:3030"
+            - "1883:1883"
