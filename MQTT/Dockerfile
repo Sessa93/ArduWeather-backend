@@ -20,4 +20,4 @@ RUN rm -f /etc/nginx/nginx.conf
 ADD nginx.conf /etc/nginx/
 
 EXPOSE 1883
-CMD ["start.sh"]
+CMD ["npm", "start"]
